@@ -10,9 +10,21 @@ public class Book {
         this.maSach = maSach;
         this.tieuDe = tieuDe;
         this.tacGia = tacGia;
-        this.namXuatBan = namXuatBan;
-        this.soLuong = soLuong;
+        if (namXuatBan > 0) {
+            this.namXuatBan = namXuatBan;
+        } else {
+            System.out.println("Nam xuat ban khong hop le!");
+            this.namXuatBan = 0;
+        }
+        if (soLuong >= 0) {
+            this.soLuong = soLuong;
+        } else {
+            System.out.println("So luong khong hop le!");
+            this.soLuong = 0;
+        }
     }
+
+
     public String getMaSach() {
         return maSach;
     }
@@ -39,6 +51,7 @@ public class Book {
             this.namXuatBan = namXuatBan;
         } else {
             System.out.println("Nam xuat ban khong hop le!");
+            this.namXuatBan = 0;
         }
     }
     public int getSoLuong() {
@@ -49,6 +62,7 @@ public class Book {
             this.soLuong = soLuong;
         } else {
             System.out.println("So luong khong hop le!");
+            this.soLuong = 0;
         }
     }
     public void hienThiThongTin() {
