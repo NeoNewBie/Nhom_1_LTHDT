@@ -65,12 +65,20 @@ public class Book {
             this.soLuong = 0;
         }
     }
-    public void hienThiThongTin() {
+    /*public void hienThiThongTin() {
         System.out.println("Ma sach: " + maSach);
         System.out.println("Tieu de: " + tieuDe);
         System.out.println("Tac gia: " + tacGia);
         System.out.println("Nam xuat ban: " + namXuatBan);
         System.out.println("So luong: " + soLuong);
         System.out.println("---------------------------");
+    }*/
+    @Override
+    public String toString() {
+        return "Mã sách: " + maSach +
+               "\nTiêu đề: " + tieuDe +
+               "\nTác giả: " + tacGia +
+               "\nNăm XB: " + namXuatBan +
+               "\nSố lượng: " + soLuong;
     }
 }
