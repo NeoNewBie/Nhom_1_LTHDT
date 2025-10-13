@@ -1,17 +1,15 @@
 public class Textbook extends Book{
-    String monHoc;
-    String capDo;
-
+    private String monHoc;
+    private String capDo;
 
     public Textbook(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong, String monHoc, String capDo)
     {
         super(maSach, tieuDe, tacGia, namXuatBan, soLuong);
         this.monHoc = monHoc;
         this.capDo = capDo;
- 
     }
 
-     public String getMonHoc() { 
+    public String getMonHoc() { 
         return monHoc; }
     public void setMonHoc(String monHoc) { 
         this.monHoc = monHoc; 
@@ -21,11 +19,14 @@ public class Textbook extends Book{
         return capDo;
     }
     public void setCapDo(String capDo) { 
-        this.capDo = capDo; }
+        this.capDo = capDo; 
+    }
 
     @Override
     public String toString() {
-        return super.toString() + ", Môn học: " + monHoc + ", Cấp độ: " + capDo;
+        return super.toString() + 
+        "\nMôn học: " + monHoc + 
+        "\nCấp độ: " + capDo;
     }
 }
 
