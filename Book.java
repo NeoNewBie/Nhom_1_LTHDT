@@ -1,4 +1,4 @@
-public class Book {
+public class Book{
     private String maSach;
     private String tieuDe;
     private String tacGia;
@@ -23,8 +23,6 @@ public class Book {
             this.soLuong = 0;
         }
     }
-
-
     public String getMaSach() {
         return maSach;
     }
@@ -65,20 +63,12 @@ public class Book {
             this.soLuong = 0;
         }
     }
-    /*public void hienThiThongTin() {
-        System.out.println("Ma sach: " + maSach);
-        System.out.println("Tieu de: " + tieuDe);
-        System.out.println("Tac gia: " + tacGia);
-        System.out.println("Nam xuat ban: " + namXuatBan);
-        System.out.println("So luong: " + soLuong);
-        System.out.println("---------------------------");
-    }*/
     @Override
     public String toString() {
-        return "Mã sách: " + maSach +
-               "\nTiêu đề: " + tieuDe +
-               "\nTác giả: " + tacGia +
-               "\nNăm XB: " + namXuatBan +
-               "\nSố lượng: " + soLuong;
+        return "Ma sach: " + maSach +
+               "\nTieu de: " + tieuDe +
+               "\nTac gia: " + tacGia +
+               "\nNam XB: " + namXuatBan +
+               "\nSo luong: " + soLuong;
     }
 }

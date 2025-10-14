@@ -12,24 +12,19 @@ public class Test {
         sach1.hienThiThongTin();
         sach2.hienThiThongTin();*/
         BookManager ql = new BookManager();
-
         // Thêm sách
-        ql.themSach(new Textbook("GT01", "Giải tích 1", "Nguyễn Văn A", 2021, 10, "Toán", "Đại học"));
-        ql.themSach(new Novel("TT01", "Doraemon", "Fujiko Fujio", 1995, 50, "Thiếu nhi", true));
-
+        ql.themSach(new Textbook("GT01", "Giai tich 1", "Nguyen Van A", 2021, 10, "Toan", "Đai hoc"));
+        ql.themSach(new Novel("TT01", "Doraemon", "Fujiko Fujio", 1995, 50, "Thieu nhi", true));
         // Hiển thị
         System.out.println("=== Danh sách sách ===");
         ql.hienThiDanhSach();
-
         // Tìm kiếm
         System.out.println("\n=== Find TT01 ===");
         System.out.println(ql.timKiemSach("TT01"));
-
         // Cập nhật
         ql.capNhatSoLuong("GT01", 20);
         System.out.println("\n=== Sau khi Update GT01 ===");
         ql.hienThiDanhSach();
-
         // Xóa
         ql.xoaSach("TT01");
         System.out.println("\n=== Sau khi xóa TT01 ===");
