@@ -13,11 +13,10 @@ public class Novel extends Book{
     public void setMonHoc(String theLoai) { 
         this.theLoai = theLoai; 
     }
-
     @Override
     public String toString() {
         return super.toString() + 
-        "\nThể loại: " + theLoai + 
-        "\nSách series : " + (laSachSeries ? "Có" : "Không");
+        "The loai: " + theLoai + 
+        "\nSach series : " + (laSachSeries ? "Có" : "Không");
     }
 }
