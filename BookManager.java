@@ -31,9 +31,19 @@ public class BookManager
         }
         return false;
     }
-    public void hienThiDanhSach() 
+    public void hienThiDanhSachSach() 
     {
-        if (danhSachSach.isEmpty()) System.out.println("Danh sách trống!");
-        else danhSachSach.forEach(System.out::println);
+        if (danhSachSach.isEmpty()) 
+        {
+            System.out.println("Danh sách trống!");
+        } 
+        else 
+        {
+            for (Book s : danhSachSach) 
+            {
+                    System.out.println(s);
+                    System.out.println("Giá bán uoc tính: " + s.tinhGiaBan() + " VND\n");
+            }
+        }
     }
 }

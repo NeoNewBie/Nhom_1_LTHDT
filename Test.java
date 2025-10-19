@@ -13,9 +13,9 @@ public class Test {
         sach2.hienThiThongTin();*/
         BookManager ql = new BookManager();
         // Thêm sách
-        ql.themSach(new Textbook("GT01", "Giai tich 1", "Nguyen Van A", 2021, 10, "Toan", "Đai hoc"));
-        ql.themSach(new Novel("TT01", "Doraemon", "Fujiko Fujio", 1995, 50, "Thieu nhi", true));
-        // Hiển thị
+        ql.themSach(new Textbook("LTHDT01", "Lap trinh huong doi tuong", "Nguyen Van A", 2021, 10, "Toan", "Dai hoc",100000));
+        ql.themSach(new Novel("TT01", "Mat Biec", "Nguyen Nhat Anh", 1995, 50, "tieu thuyet", true,120000));
+        /* // Hiển thị
         System.out.println("=== Danh sách sách ===");
         ql.hienThiDanhSach();
         // Tìm kiếm
@@ -28,6 +28,14 @@ public class Test {
         // Xóa
         ql.xoaSach("TT01");
         System.out.println("\n=== Sau khi xóa TT01 ===");
-        ql.hienThiDanhSach();
+        ql.hienThiDanhSach();*/
+        // Hiển thị danh sách sách và giá bán
+        System.out.println("=== Danh sách sách ===");
+        ql.hienThiDanhSachSach();
+        // Kiểm thử giao diện IKiemKe
+        System.out.println("=== Kiem thu giao dien IKiemKe ===");
+        IKiemKe kiemKe = new Textbook("GT02", "Ly thuyet do thi", "Tran Van B", 2022, 200, "Tin học", "Cao học", 150000);
+        System.out.println("Du ton kho ≥ 100 ? " + kiemKe.kiemTraTonKho(100));
+        kiemKe.capNhatViTri("Kho A1 - Ke 5");
     }
 }

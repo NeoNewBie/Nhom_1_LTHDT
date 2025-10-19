@@ -1,9 +1,9 @@
-public class Textbook extends Book{
+public class Textbook extends Book implements IKiemKe {
     private String monHoc;
     private String capDo;
-    public Textbook(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong, String monHoc, String capDo)
+    public Textbook(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong, String monHoc, String capDo, double giaCoBan)
     {
-        super(maSach, tieuDe, tacGia, namXuatBan, soLuong);
+        super(maSach, tieuDe, tacGia, namXuatBan, soLuong, giaCoBan);
         this.monHoc = monHoc;
         this.capDo = capDo;
     }
@@ -18,10 +18,25 @@ public class Textbook extends Book{
     public void setCapDo(String capDo) { 
         this.capDo = capDo; 
     }
+    @Override 
+    public double tinhGiaBan() {
+        int soNamXuatBan = 2025 - namXuatBan;
+        return giaCoBan + (soNamXuatBan * 5000);
+    }
+        @Override
+    public boolean kiemTraTonKho(int soLuongToiThieu) {
+        return soLuong >= soLuongToiThieu;
+    }
+
+    @Override
+    public void capNhatViTri(String viTriMoi) {
+        System.out.println("Da chuyen sách \"" + tieuDe + "\" den khu vuc: " + viTriMoi);
+    }
     @Override
     public String toString() {
         return super.toString() + 
-        "Mon hoc: " + monHoc + 
-        "\nCap do: " + capDo;
+        "\nMon hoc: " + monHoc + 
+        "\nCap do: " + capDo +
+        "\nGia ban: " + tinhGiaBan();
     }
 }
