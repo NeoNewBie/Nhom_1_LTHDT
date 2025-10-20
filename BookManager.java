@@ -28,7 +28,9 @@ public class BookManager {
     }
 
     public void hienThiDanhSach() {
-        if (danhSachSach.isEmpty()) System.out.println("Danh sách trống!");
-        else danhSachSach.forEach(System.out::println);
+        if (danhSachSach.isEmpty()) 
+            System.out.println("Danh sách trống!");
+        else 
+            danhSachSach.forEach(System.out::println);
     }
 }
