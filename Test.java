@@ -14,8 +14,8 @@ public class Test {
         BookManager ql = new BookManager();
 
         // Thêm sách
-        ql.themSach(new Textbook("GT01", "Giải tích 1", "Nguyễn Văn A", 2021, 10, "Toán", "Đại học"));
-        ql.themSach(new Novel("TT01", "Doraemon", "Fujiko Fujio", 1995, 50, "Thiếu nhi", true));
+        ql.themSach(new Textbook("GT01", "Giải tích 1", "Nguyễn Văn A", 2021, 10, 5000, "Toán", "Đại học"));
+        ql.themSach(new Novel("TT01", "Doraemon", "Fujiko Fujio", 1995, 50,5000, "Thiếu nhi", true));
 
         // Hiển thị
         System.out.println("=== Danh sách sách ===");
