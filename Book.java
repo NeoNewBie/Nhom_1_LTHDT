@@ -5,6 +5,7 @@ public abstract class Book {
     protected int namXuatBan;
     protected int soLuong;
     protected double giaCoBan;
+    
     public Book() {
     }
     public Book(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong, double giaCoBan) {
