@@ -1,15 +1,17 @@
-public class Book{
+public abstract class Book{
     private String maSach;
-    private String tieuDe;
+    protected String tieuDe;
     private String tacGia;
-    private int namXuatBan;
-    private int soLuong;
+    protected int namXuatBan;
+    protected int soLuong;
+    protected double giaCoBan;
     public Book() {
     }
-    public Book(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong) {
+    public Book(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong, double giaCoBan) {
         this.maSach = maSach;
         this.tieuDe = tieuDe;
         this.tacGia = tacGia;
+        this.giaCoBan = giaCoBan;
         if (namXuatBan > 0) {
             this.namXuatBan = namXuatBan;
         } else {
@@ -22,6 +24,12 @@ public class Book{
             System.out.println("So luong khong hop le!");
             this.soLuong = 0;
         }
+    }
+    public double getGiaCoBan(){
+        return giaCoBan;
+    }
+    public void setGiaCoBan(double giaCoBan){
+        this.giaCoBan = giaCoBan;
     }
     public String getMaSach() {
         return maSach;
@@ -71,4 +79,5 @@ public class Book{
                "\nNam XB: " + namXuatBan +
                "\nSo luong: " + soLuong;
     }
+    public abstract double tinhGiaBan();
 }
