@@ -1,12 +1,13 @@
 public abstract class Book {
-    private String maSach;
-    private String tieuDe;
-    private String tacGia;
-    private int namXuatBan;
-    private int soLuong;
+    protected String maSach;
+    protected String tieuDe;
+    protected String tacGia;
+    protected int namXuatBan;
+    protected int soLuong;
+    protected double giaCoBan;
     public Book() {
     }
-    public Book(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong) {
+    public Book(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong, double giaCoBan) {
         this.maSach = maSach;
         this.tieuDe = tieuDe;
         this.tacGia = tacGia;
@@ -21,6 +22,12 @@ public abstract class Book {
         } else {
             System.out.println("So luong khong hop le!");
             this.soLuong = 0;
+        }
+        if (giaCoBan > 0) {
+            this.giaCoBan = giaCoBan;
+        } else {
+            System.out.println("Giá cơ bản không hợp lệ.");
+            this.giaCoBan = 0;
         }
     }
 
@@ -65,6 +72,16 @@ public abstract class Book {
             this.soLuong = 0;
         }
     }
+    public double getGiaCoBan(){
+        return giaCoBan;
+    }
+    public void setGiaCoBan(double giaCoBan){
+        if (giaCoBan > 0) {
+            this.giaCoBan = giaCoBan;
+        } else {
+            System.out.println("Giá cơ bản không hợp lệ.");
+        }
+    }
     /*public void hienThiThongTin() {
         System.out.println("Ma sach: " + maSach);
         System.out.println("Tieu de: " + tieuDe);
@@ -73,14 +90,16 @@ public abstract class Book {
         System.out.println("So luong: " + soLuong);
         System.out.println("---------------------------");
     }*/
+
+    public abstract double tinhGiaBan();
+
     @Override
     public String toString() {
         return "Mã sách: " + maSach +
                "\nTiêu đề: " + tieuDe +
                "\nTác giả: " + tacGia +
                "\nNăm XB: " + namXuatBan +
-               "\nSố lượng: " + soLuong;
+               "\nSố lượng: " + soLuong +
+               "\nGiá cơ bản: " + giaCoBan;
     }
-
-    public abstract double tinhGiaBan();
 }
