@@ -1,4 +1,4 @@
-public abstract class Book {
+public abstract class Book implements IGiaBan, IKiemKe{
     protected String maSach;
     protected String tieuDe;
     protected String tacGia;
