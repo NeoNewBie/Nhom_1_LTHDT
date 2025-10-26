@@ -1,4 +1,4 @@
-public class Textbook extends Book implements IKiemKe {
+public class Textbook extends Book{
     private String monHoc;
     private String capDo;
     public Textbook(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong, String monHoc, String capDo, double giaCoBan)
@@ -23,7 +23,7 @@ public class Textbook extends Book implements IKiemKe {
         int soNamXuatBan = 2025 - namXuatBan;
         return giaCoBan + (soNamXuatBan * 5000);
     }
-        @Override
+    @Override
     public boolean kiemTraTonKho(int soLuongToiThieu) {
         return soLuong >= soLuongToiThieu;
     }

@@ -1,41 +1,75 @@
+import java.util.Scanner;
 public class Test {
     public static void main(String[] args) {
-        
-        /*Book sach1 = new Book("B001", "Lap Trinh Java", "Nguyen Duc Tai", 2025, 100);
-        Book sach2 = new Book();
-        sach2.setMaSach("B002");
-        sach2.setTieuDe("Co So Du Lieu");
-        sach2.setTacGia("Le Anh Quoc");
-        sach2.setNamXuatBan(2025);
-        sach2.setSoLuong(500);
-        System.out.println("Danh Sach Sach Trong Thu Vien");
-        sach1.hienThiThongTin();
-        sach2.hienThiThongTin();*/
-        BookManager ql = new BookManager();
-        // Thêm sách
-        ql.themSach(new Textbook("LTHDT01", "Lap trinh huong doi tuong", "Nguyen Van A", 2021, 10, "Toan", "Dai hoc",100000));
-        ql.themSach(new Novel("TT01", "Mat Biec", "Nguyen Nhat Anh", 1995, 50, "tieu thuyet", true,120000));
-        /* // Hiển thị
-        System.out.println("=== Danh sách sách ===");
-        ql.hienThiDanhSach();
-        // Tìm kiếm
-        System.out.println("\n=== Find TT01 ===");
-        System.out.println(ql.timKiemSach("TT01"));
-        // Cập nhật
-        ql.capNhatSoLuong("GT01", 20);
-        System.out.println("\n=== Sau khi Update GT01 ===");
-        ql.hienThiDanhSach();
-        // Xóa
-        ql.xoaSach("TT01");
-        System.out.println("\n=== Sau khi xóa TT01 ===");
-        ql.hienThiDanhSach();*/
-        // Hiển thị danh sách sách và giá bán
-        System.out.println("=== Danh sách sách ===");
-        ql.hienThiDanhSachSach();
-        // Kiểm thử giao diện IKiemKe
-        System.out.println("=== Kiem thu giao dien IKiemKe ===");
-        IKiemKe kiemKe = new Textbook("GT02", "Ly thuyet do thi", "Tran Van B", 2022, 200, "Tin học", "Cao học", 150000);
-        System.out.println("Du ton kho ≥ 100 ? " + kiemKe.kiemTraTonKho(100));
-        kiemKe.capNhatViTri("Kho A1 - Ke 5");
+        IQuanLySach quanLy = new BookManager();
+        Scanner sc = new Scanner(System.in);
+        int chon;
+
+        do {
+            System.out.println("\n===== MENU QUAN LY SACH =====");
+            System.out.println("1. Them giao trinh sach");
+            System.out.println("2. Them sach tieu thuyet");
+            System.out.println("3. Hien thi danh sach sach");
+            System.out.println("4. Tim kiem sach");
+            System.out.println("5. Xoa sach");
+            System.out.println("0. Thoat");
+            System.out.print("Chon: ");
+            chon = sc.nextInt();
+            sc.nextLine();
+
+            switch (chon) {
+                case 1:
+                    System.out.print("Ma sach: "); String ma1 = sc.nextLine();
+                    System.out.print("Tieu de: "); String td1 = sc.nextLine();
+                    System.out.print("Tac gia: "); String tg1 = sc.nextLine();
+                    System.out.print("Nam XB: "); int nam1 = sc.nextInt();
+                    System.out.print("So luong: "); int sl1 = sc.nextInt();
+                    System.out.print("Gia co ban: "); double g1 = sc.nextDouble(); sc.nextLine();
+                    System.out.print("Mon hoc: "); String mh = sc.nextLine();
+                    System.out.print("Cap do: "); String cd = sc.nextLine();
+                    quanLy.themSach(new Textbook(ma1, td1, tg1, nam1, sl1, mh, cd, g1));
+                    break;
+
+                case 2:
+                    System.out.print("Ma sach: "); String ma2 = sc.nextLine();
+                    System.out.print("Tieu de: "); String td2 = sc.nextLine();
+                    System.out.print("Tac gia: "); String tg2 = sc.nextLine();
+                    System.out.print("Nam XB: "); int nam2 = sc.nextInt();
+                    System.out.print("So luong: "); int sl2 = sc.nextInt();
+                    System.out.print("Gia co ban: "); double g2 = sc.nextDouble(); sc.nextLine();
+                    System.out.print("The loai: "); String tl = sc.nextLine();
+                    System.out.print("Co phai series (true/false): "); boolean sr = sc.nextBoolean();
+                    quanLy.themSach(new Novel(ma2, td2, tg2, nam2, sl2, tl, sr, g2));
+                    break;
+
+                case 3:
+                    quanLy.hienThiDanhSachSach();
+                    break;
+
+                case 4:
+                    System.out.print("Nhap ma sach can tim: ");
+                    String maTim = sc.nextLine();
+                    Book kq = quanLy.timKiemSach(maTim);
+                    System.out.println(kq != null ? kq : "Khong tim thay!");
+                    break;
+
+                case 5:
+                    System.out.print("hap ma sach can xoa: ");
+                    String maXoa = sc.nextLine();
+                    if (quanLy.xoaSach(maXoa))
+                        System.out.println("Xoa thanh cong!");
+                    else
+                        System.out.println("Khong tim thay sach!");
+                    break;
+
+                case 0:
+                    System.out.println("Ket thuc chuong trinh.");
+                    break;
+
+                default:
+                    System.out.println("Lua chon khong hop le!");
+            }
+
+        } while (chon != 0);
     }
 }

@@ -1,49 +1,52 @@
 import java.util.ArrayList;
+public class BookManager implements IQuanLySach {
+    private ArrayList<Book> danhSachSach;
 
-public class BookManager 
-{
-    private ArrayList<Book> danhSachSach = new ArrayList<>();
-    public void themSach(Book sach) 
-    {
+    public BookManager() {
+        this.danhSachSach = new ArrayList<>();
+    }
+
+    @Override
+    public void themSach(Book sach) {
         danhSachSach.add(sach);
     }
-    public boolean xoaSach(String maSach) 
-    {
-        return danhSachSach.removeIf(s -> s.getMaSach().equalsIgnoreCase(maSach));
-    }
 
-    public Book timKiemSach(String maSach) 
-    {
-        for (Book s : danhSachSach)
-        { 
-            if (s.getMaSach().equalsIgnoreCase(maSach))     
-            return s;
-        }
-        return null;
-    }
-    public boolean capNhatSoLuong(String maSach, int soLuongMoi) 
-    {
-        Book s = timKiemSach(maSach);
-        if (s != null) 
-        {
-            s.setSoLuong(soLuongMoi);
-            return true;
+    @Override
+    public boolean xoaSach(String maSach) {
+        for (Book sach : danhSachSach) {
+            if (sach.getMaSach().equals(maSach)) {
+                danhSachSach.remove(sach);
+                return true;
+            }
         }
         return false;
     }
-    public void hienThiDanhSachSach() 
-    {
-        if (danhSachSach.isEmpty()) 
-        {
-            System.out.println("Danh sách trống!");
-        } 
-        else 
-        {
-            for (Book s : danhSachSach) 
-            {
-                    System.out.println(s);
-                    System.out.println("Giá bán uoc tính: " + s.tinhGiaBan() + " VND\n");
+
+    @Override
+    public Book timKiemSach(String maSach) {
+        for (Book sach : danhSachSach) {
+            if (sach.getMaSach().equals(maSach)) {
+                return sach;
             }
         }
+        return null;
     }
-}
+
+    @Override
+    public boolean capNhatSoLuong(String maSach, int soLuongMoi) {
+        for (Book sach : danhSachSach) {
+            if (sach.getMaSach().equals(maSach)) {
+                sach.setSoLuong(soLuongMoi);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void hienThiDanhSachSach() {
+        for (Book sach : danhSachSach) {
+            System.out.println(sach);
+        }
+    }
+}   

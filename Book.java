@@ -1,7 +1,7 @@
-public abstract class Book{
-    private String maSach;
+public abstract class Book implements IGiaBan, IKiemKe {
+    protected String maSach;
     protected String tieuDe;
-    private String tacGia;
+    protected String tacGia;
     protected int namXuatBan;
     protected int soLuong;
     protected double giaCoBan;
@@ -79,5 +79,5 @@ public abstract class Book{
                "\nNam XB: " + namXuatBan +
                "\nSo luong: " + soLuong;
     }
-    public abstract double tinhGiaBan();
+    // public abstract double tinhGiaBan();
 }

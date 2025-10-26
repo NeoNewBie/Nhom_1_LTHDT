@@ -1,4 +1,4 @@
-public class Novel extends Book implements IKiemKe {
+public class Novel extends Book {
     private String theLoai;
     private boolean laSachSeries;
 
@@ -21,7 +21,6 @@ public class Novel extends Book implements IKiemKe {
     public boolean kiemTraTonKho(int soLuongToiThieu) {
         return soLuong >= soLuongToiThieu;
     }
-
     @Override
     public void capNhatViTri(String viTriMoi) {
         System.out.println("Da chuyen sach \"" + tieuDe + "\" den khu vuc: " + viTriMoi);
