@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 public class BookManager implements IQuanLySach {
     private ArrayList<Book> danhSachSach;
 
@@ -13,19 +14,13 @@ public class BookManager implements IQuanLySach {
 
     @Override
     public boolean xoaSach(String maSach) {
-        for (Book sach : danhSachSach) {
-            if (sach.getMaSach().equals(maSach)) {
-                danhSachSach.remove(sach);
-                return true;
-            }
-        }
-        return false;
+        return danhSachSach.removeIf(s -> s.getMaSach().equalsIgnoreCase(maSach));
     }
 
     @Override
     public Book timKiemSach(String maSach) {
         for (Book sach : danhSachSach) {
-            if (sach.getMaSach().equals(maSach)) {
+            if (sach.getMaSach().equalsIgnoreCase(maSach)) {
                 return sach;
             }
         }
@@ -34,19 +29,20 @@ public class BookManager implements IQuanLySach {
 
     @Override
     public boolean capNhatSoLuong(String maSach, int soLuongMoi) {
-        for (Book sach : danhSachSach) {
-            if (sach.getMaSach().equals(maSach)) {
-                sach.setSoLuong(soLuongMoi);
-                return true;
-            }
+        Book sach = timKiemSach(maSach);
+        if (sach != null) {
+            sach.setSoLuong(soLuongMoi);
+            return true;
         }
         return false;
     }
 
     @Override
     public void hienThiDanhSachSach() {
-        for (Book sach : danhSachSach) {
-            System.out.println(sach);
+        if (danhSachSach.isEmpty()) {
+            System.out.println("Danh sách trống!");
+        } else {
+            danhSachSach.forEach(System.out::println);
         }
     }
-}   
+}
