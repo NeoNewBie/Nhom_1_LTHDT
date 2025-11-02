@@ -1,4 +1,4 @@
-public abstract class Book {
+public abstract class Book implements IGiaBan, IKiemKe{
     protected String maSach;
     protected String tieuDe;
     protected String tacGia;
@@ -93,6 +93,17 @@ public abstract class Book {
 
     public abstract double tinhGiaBan();
 
+    @Override
+    public boolean kiemTraTonKho(int soLuongToiThieu) {
+        // Trả về true nếu soLuong hiện có của sách ≥ soLuongToiThieu
+        return this.soLuong >= soLuongToiThieu;
+    }
+    
+    @Override
+    public void capNhatViTri(String viTriMoi) {
+        // In ra màn hình thông báo theo yêu cầu
+        System.out.println("Đã chuyển sách " + this.tieuDe + " đến khu vực: " + viTriMoi);
+    }
     @Override
     public String toString() {
         return "Mã sách: " + maSach +
